@@ -1,15 +1,7 @@
-// background.js
-
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === 'splitText') {
-    // Forward the message to the active tab's content script
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      const activeTab = tabs[0];
-      chrome.tabs.sendMessage(activeTab.id, request, (response) => {
-        sendResponse(response);
-      });
+  if (request.action === "splitText") {
+    chrome.tabs.query({url: "https://chat.openai.com/*"}, tabs => {  
+      chrome.tabs.sendMessage(tabs[0].id, request);
     });
-    // Indicate that the response will be sent asynchronously
-    return true;
   }
 });
