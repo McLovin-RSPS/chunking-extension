@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Text Chunking Extension</title>
+    <style>
+      body {
+        width: 300px;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="range"] {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Text Chunking Extension</h1>
+    <form id="chunkForm">
+      <label for="textInput">Text:</label>
+      <input type="text" id="textInput" required>
+
+      <label for="chunkSlider">Number of Tokens:</label>
+      <input type="range" id="chunkSlider" min="1" max="100" step="1" value="10">
+
+      <button type="submit">Split Text</button>
+    </form>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
