@@ -1,17 +1,17 @@
 // chatGPT.js
 function switchToChatGPT() {
-  chrome.tabs.query({ url: 'https://chatgpt.com/*' }, (tabs) => {
+  chrome.tabs.query({ url: 'https://chat.openai.com/*' }, (tabs) => {
     if (tabs.length > 0) {
       const chatGPTTab = tabs[0];
       chrome.tabs.update(chatGPTTab.id, { active: true });
     } else {
-      chrome.tabs.create({ url: 'https://chatgpt.com' });
+      chrome.tabs.create({ url: 'https://chat.openai.com' });
     }
   });
 }
 
 function sendChunksToChatGPT(chunks) {
-  chrome.tabs.query({ url: 'https://chatgpt.com/*' }, (tabs) => {
+  chrome.tabs.query({ url: 'https://chat.openai.com/*' }, (tabs) => {
     if (tabs.length > 0) {
       const chatGPTTab = tabs[0];
       chunks.forEach((chunk, index) => {

@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "Text Chunking Extension",
+  "name": "Prompt Toolbox Extension",
   "version": "1.0",
   "description": "Split large bodies of text into chunks",
   "permissions": ["activeTab"],
   "action": {
     "default_popup": "popup.html",    
-    "default_title": "Text Chunking Extension"  
+    "default_title": "Prompt Toolbox Extension"  
   }, 
   "icons": {
     "16": "icons/icon16.png",
