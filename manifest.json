@@ -1,13 +1,13 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 3, 
   "name": "Prompt Toolbox Extension",
   "version": "1.0",
   "description": "Split large bodies of text into chunks",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "tabs"], 
   "action": {
     "default_popup": "popup.html",    
     "default_title": "Prompt Toolbox Extension"  
-  }, 
+  },
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",  
