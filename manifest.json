@@ -3,7 +3,7 @@
   "name": "Prompt Toolbox Extension",
   "version": "1.0",
   "description": "Split large bodies of text into chunks",
-  "permissions": ["activeTab", "tabs"], 
+  "permissions": ["activeTab", "scripting", "tabs"], 
   "action": {
     "default_popup": "popup.html",    
     "default_title": "Prompt Toolbox Extension"  
