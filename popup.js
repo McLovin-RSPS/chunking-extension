@@ -5,3 +5,4 @@ chrome.runtime.sendMessage({
 }, response => {
   // Handle response from content script
 });
+

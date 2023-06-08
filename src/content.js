@@ -10,19 +10,18 @@ function splitTextIntoChunks(text, chunkSize) {
 chrome.runtime.onMessage.addListener((request, sender) => {
   if (request.action === "splitText") {
     const { text, chunkSize } = request;    
-    chrome.tabs.query({active: true, currentWindow: true}, ([tab]) => {  
-      chrome.tabs.executeScript(
-        tab.id,
-        { file: "inject.js" },
-        () => {      
-          const chunks = splitTextIntoChunks(text, chunkSize);             
-          sendChunksToChatGPT(chunks);
-        }
-      );   
-    });     
+    const chunks = splitTextIntoChunks(text, chunkSize);   
+    sendChunksToChatGPT(chunks);
   }    
 });
 
 function sendChunksToChatGPT(chunks) {
-  // ... (existing code)
+  chrome.tabs.query({ url: 'https://chat.openai.com/*' }, (tabs) => {
+    const chatGPTTab = tabs[0];
+    chunks.forEach((chunk, index) => {
+      const message = `Text #${index + 1}/${chunks.length}: ${chunk}`;
+      chrome.tabs.sendMessage(chatGPTTab.id, { action: 'sendPrompt', message });
+    });
+  });
 }
+
